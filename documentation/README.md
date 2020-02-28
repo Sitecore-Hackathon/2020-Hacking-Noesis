@@ -10,7 +10,7 @@ Examples of things to include are the following.
 
 **Category:** Hackathon Category
 
-What is the purpose of your module? What problem does it solve and how does it do that?
+What is the purpose of your module? What problem does it solve and how does it do that? 
 
 ## Pre-requisites
 
