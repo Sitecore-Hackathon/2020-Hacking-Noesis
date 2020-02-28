@@ -6,4 +6,4 @@ Please use Nuget reference where the package is available. If certain DLLs are n
 - Library.Other.File.dll
 - Library.License.xml
 
-Do not include files which are subject to any licensing or distribution restrictions.
+Do not include files which are subject to any licensing or distribution restrictions. 
