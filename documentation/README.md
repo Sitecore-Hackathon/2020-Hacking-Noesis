@@ -9,17 +9,16 @@ Please make sure you have the following requirements:
 + Sitecore 9.3.0 rev. 003498 
 + Sitecore Experience Accelerator 9.3.0
 
+
 ## Installation
 [Install Sitecore 9.3 rev 003498](https://dev.sitecore.net/~/media/A1BC9FD8B20841959EF5275A3C97A8F9.ashx)
 Install Sitecore Experience Accelerator 9.3.0 (included in the setup above)
 
 ## Configuration
-Everything should be included in the provided package (ADICIONAR LINK) and steps above.
+Everything should be included in the provided [packages](https://github.com/Sitecore-Hackathon/2020-Hacking-Noesis/tree/master/sc.package) and steps above.
 
-1- First install the two packages provided. This packages are to be used in a clean instance of Sitecore 9.3 with SXA 9.3 pre-installed. First install the Package 1 and then the Package 2
-2- Run the SQL script (ADICIONAR LINK PARA O SCRIPT) to create the additional database a table that will be used to create the module items.
-3- Add the new connectionstring to the connectionstring.config.
-4- Deploy the code of the repository.
+1- First install the two packages provided. This packages are to be used in a clean instance of Sitecore 9.3 with SXA 9.3 pre-installed. First install the Package 20200229.2238.HackingNoesis-1of2.zip and then the 20200229.2238.HackingNoesis-2of2.zip package.
+2- Deploy the code of the repository.
  
 ## Technical breakdown
 The key goals of this community are share events and group people according to their interests and/or localization.
