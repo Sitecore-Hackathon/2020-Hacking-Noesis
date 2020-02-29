@@ -43,10 +43,13 @@ namespace Feature.Accounts.SubmitActions
 
             if (formSubmitContext.Canceled || formSubmitContext.HasErrors)
                 return false;
-
+             
             string name = string.Empty;
             string description = string.Empty;
-            string location = string.Empty;
+            string place = string.Empty;
+            string startDate = string.Empty;
+            string endDate = string.Empty;
+            string eventtypes = string.Empty;
 
             foreach (IViewModel field in formSubmitContext.Fields)
             {
@@ -76,18 +79,30 @@ namespace Feature.Accounts.SubmitActions
                             description = fieldValue.GetValue((object)field).ToString();
                         }
 
-                        if (fieldTitle.GetValue((object)field).ToString() == "Location")
+                        if (fieldTitle.GetValue((object)field).ToString() == "Place")
                         {
-                            location = fieldValue.GetValue((object)field).ToString();
+                            place = fieldValue.GetValue((object)field).ToString();
+                        }
+                        if (fieldTitle.GetValue((object)field).ToString() == "StartDate")
+                        {
+                            startDate = fieldValue.GetValue((object)field).ToString();
+                        }
+                        if (fieldTitle.GetValue((object)field).ToString() == "EndDate")
+                        {
+                            endDate = fieldValue.GetValue((object)field).ToString();
+                        }
+                        if (fieldTitle.GetValue((object)field).ToString() == "Eventtypes")
+                        {
+                            eventtypes = fieldValue.GetValue((object)field).ToString();
                         }
                     }
                 }
             }
 
-            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(description) && !string.IsNullOrEmpty(location))
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(description) && !string.IsNullOrEmpty(place) && !string.IsNullOrEmpty(eventtypes))
             {
                 using (new Sitecore.SecurityModel.SecurityDisabler()) { 
-                    CreateItem(name, description, location);
+                    CreateItem(name, description, place, startDate, endDate, eventtypes);
                 }
                 return true;
             }
@@ -100,13 +115,11 @@ namespace Feature.Accounts.SubmitActions
             }
         }
 
-        private static void CreateItem(string name, string description, string location) {
+        private static void CreateItem(string name, string description, string place, string startDate, string endDate, string eventtypes) {
 
-            string parentItemQuery = Context.Site.RootPath + "/*[@@templatename='Home']/*[@@templatename='Groups']";
-            Item parentItem = Context.Database.SelectSingleItem(parentItemQuery);
+            Item parentItem = GetParent();
 
-            //  var parentItem = Sitecore.Context.Database.GetItem(Templates.Users.ID);
-            var templateId = new BranchId(new ID("{4CBA4FE4-E13E-4777-8A46-3310F77FD331}"));
+            var templateId = new BranchId(new ID("{3E8DADF5-9414-4888-8AAF-DFC42ACEDCD2}"));
 
             string itemName = ProposeValidItemName(name);
 
@@ -117,7 +130,7 @@ namespace Feature.Accounts.SubmitActions
                 item = parentItem.Add(itemName, templateId);
             }
 
-            UpdateData(item, name, description, location);
+            UpdateData(item, name, description, place, startDate, endDate, eventtypes);
         }
 
         public static string ProposeValidItemName(string text, bool useSpaces = true)
@@ -151,7 +164,7 @@ namespace Feature.Accounts.SubmitActions
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
 
-        private static void UpdateData(Item item, string name, string description, string location)
+        private static void UpdateData(Item item, string name, string description, string place, string startDate, string endDate, string eventtypes)
         {
 
             try
@@ -169,6 +182,16 @@ namespace Feature.Accounts.SubmitActions
 
                 Sitecore.Data.Fields.MultilistField multiselectField = item.Fields["Members"];
                 multiselectField.Add(userId.ToString());
+
+                Item calendarEvent = item.Axes.SelectSingleItem("//*[@@templateid = '" + Sitecore.XA.Feature.Events.Templates.CalendarEvent.ID + "']");
+
+                if(calendarEvent != null){
+                    calendarEvent["Place"] = place;
+                    calendarEvent["Name"] = name;
+                    calendarEvent["Description"] = description;
+                    Sitecore.Data.Fields.MultilistField multiselectCalendarEvent = calendarEvent.Fields["EventType"];
+                    multiselectCalendarEvent.Add(eventtypes.ToString());
+                }
 
                 item.Editing.EndEdit();
             }
@@ -190,6 +213,23 @@ namespace Feature.Accounts.SubmitActions
             {
                 return item.ID;
             }
+        }
+
+        private static Item GetParent()
+        {
+            var url = System.Web.HttpContext.Current.Request.UrlReferrer;
+            var siteContext = Sitecore.Sites.SiteContextFactory.GetSiteContext(url.Host, url.PathAndQuery);
+
+            var homePath = siteContext.StartPath;
+            if (!homePath.EndsWith("/"))
+                homePath += "/";
+
+            var itemPath = MainUtil.DecodeName(url.AbsolutePath);
+            if (itemPath.StartsWith(siteContext.VirtualFolder))
+                itemPath = itemPath.Remove(0, siteContext.VirtualFolder.Length);
+
+            var fullPath = homePath + "/" + itemPath;
+            return siteContext.Database.GetItem(fullPath);
         }
     }
 }

@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Sitecore.ExperienceForms" Version="9.3.0" />
     <PackageReference Include="Sitecore.Kernel" Version="9.3.0" />
+    <PackageReference Include="Sitecore.XA.Feature.Events" Version="9.3.0" />
     <PackageReference Include="Sitecore.XA.Feature.Security" Version="9.3.0" />
     <PackageReference Include="Sitecore.XA.Foundation.Mvc" Version="9.3.0" />
   </ItemGroup>
