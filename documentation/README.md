@@ -15,6 +15,7 @@ Install Sitecore Experience Accelerator 9.3.0 (ADICIONAR LINK)
 
 ## Configuration
 Everything should be included in the provided package (ADICIONAR LINK) and steps above.
+
 1- First install the two packages provided. This packages are to be used in a clean instance of Sitecore 9.3 with SXA 9.3 pre-installed. First install the Package 1 and then the Package 2
 2- Run the SQL script (ADICIONAR LINK PARA O SCRIPT) to create the additional database a table that will be used to create the module items.
 3- Add the new connectionstring to the connectionstring.config.
@@ -66,7 +67,7 @@ The calendar was done by using an extension of SXA Calendar in order to be possi
 
 ### Event Page
 1.	Go to an event page
-2.	You can navigate to each member profile and see the details of the event	
+2.	You can navigate to each member profile and see the details of the event
 
 ### Group Page
 1.	Go to a group page
