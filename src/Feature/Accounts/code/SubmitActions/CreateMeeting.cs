@@ -69,32 +69,30 @@ namespace Feature.Accounts.SubmitActions
                     }
                     else
                     {
-                        if (fieldTitle.GetValue((object)field).ToString() == "Name")
+                        var fieldValueString = fieldTitle.GetValue((object)field).ToString();
+                        switch (fieldValueString)
                         {
-                            name = fieldValue.GetValue((object)field).ToString();
-                        }
-
-                        if (fieldTitle.GetValue((object)field).ToString() == "Description")
-                        {
-                            description = fieldValue.GetValue((object)field).ToString();
-                        }
-
-                        if (fieldTitle.GetValue((object)field).ToString() == "Place")
-                        {
-                            place = fieldValue.GetValue((object)field).ToString();
-                        }
-                        if (fieldTitle.GetValue((object)field).ToString() == "Start Date")
-                        {
-                            startDate = fieldValue.GetValue((object)field).ToString();
-                        }
-                        if (fieldTitle.GetValue((object)field).ToString() == "End Date")
-                        {
-                            endDate = fieldValue.GetValue((object)field).ToString();
-                        }
-                        if (fieldTitle.GetValue((object)field).ToString() == "Event Types")
-                        {
-                            eventtypes = fieldValue.GetValue((object)field).ToString();
-                        }
+                            case "Name":
+                                name = fieldValueString;
+                                break;
+                            case "Description":
+                                description = fieldValueString;
+                                break;
+                            case "Place":
+                                place = fieldValueString;
+                                break;
+                            case "Start Date":
+                                startDate = fieldValueString;
+                                break;
+                            case "End Date":
+                                endDate = fieldValueString;
+                                break;
+                            case "Event Types":
+                                eventtypes = fieldValueString;
+                                break;
+                            default:
+                                break;
+                        }                      
                     }
                 }
             }

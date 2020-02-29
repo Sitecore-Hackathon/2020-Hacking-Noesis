@@ -66,20 +66,17 @@ namespace Feature.Accounts.SubmitActions
                     }
                     else
                     {
-
-                        if (fieldTitle.GetValue((object)field).ToString() == "Name")
+                        var fieldValueString = fieldTitle.GetValue((object)field).ToString();
+                       
+                        if (fieldValueString == "Name")
                         {
-                            name = fieldValue.GetValue((object)field).ToString();
-                        }
-
-                        if (fieldTitle.GetValue((object)field).ToString() == "Description")
+                            name = fieldValueString;
+                        } else if (fieldValueString == "Description")
                         {
-                            description = fieldValue.GetValue((object)field).ToString();
-                        }
-
-                        if (fieldTitle.GetValue((object)field).ToString() == "Location")
+                            description = fieldValueString;
+                        } else if (fieldValueString == "Location")
                         {
-                            location = fieldValue.GetValue((object)field).ToString();
+                            location = fieldValueString;
                         }
 
                     }

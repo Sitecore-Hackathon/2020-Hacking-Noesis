@@ -9,7 +9,7 @@ namespace Feature.Groups.Repositories
         protected override CalendarSettings GetCalendarSettings()
         {
             CalendarSettings calendarSettings = base.GetCalendarSettings();
-
+            //overriding the way EventItems is populated, check GetCalendarSettings
             if (calendarSettings.Mode == CalendarMode.Json)
             {
                 Item item;
