@@ -6,12 +6,12 @@ To speed up the development we used Sitecore Forms and SXA OOTB components as mu
 
 ## Pre-requisites
 Please make sure you have the following requirements:
-•	Sitecore 9.3.0 rev. 003498 
-•	Sitecore Experience Accelerator 9.3.0
++ Sitecore 9.3.0 rev. 003498 
++ Sitecore Experience Accelerator 9.3.0
 
 ## Installation
-Install Sitecore 9.3 rev 003498 (ADICIONAR LINK)
-Install Sitecore Experience Accelerator 9.3.0 (ADICIONAR LINK)
+[Install Sitecore 9.3 rev 003498](https://dev.sitecore.net/~/media/A1BC9FD8B20841959EF5275A3C97A8F9.ashx)
+Install Sitecore Experience Accelerator 9.3.0 (included in the setup above)
 
 ## Configuration
 Everything should be included in the provided package (ADICIONAR LINK) and steps above.
@@ -25,10 +25,10 @@ Everything should be included in the provided package (ADICIONAR LINK) and steps
 The key goals of this community are share events and group people according to their interests and/or localization.
 All the presentation is controlled by SXA variants using rules or SXA component settings. Some of the components are using personalization according to authentication status.
 To accomplish these goals, we developed the following functionalities:
-1.	Authentication
-2.	Create groups
-3.	Create events
-4.	Show a calendar with the events related to a group or a user
+1. Authentication
+2. Create groups
+3. Create events
+4. Show a calendar with the events related to a group or a user
 
 ### Authentication
 Composed by an SXA login component and Sitecore Forms for register users.
@@ -50,29 +50,29 @@ The calendar was done by using an extension of SXA Calendar in order to be possi
 
 ## Usage
 ### Register
-1.	Navigate to any page
-2.	On the header, click on the register link
-3.	Fill the form and click register
-4.	You will be redirected to a success page
+1. Navigate to any page
+2. On the header, click on the register link
+3. Fill the form and click register
+4. You will be redirected to a success page
 
 ### Authentication
-1.	Navigate to any page
-2.	Fill the login form on the header, using mydomain/[username]
-3.	Press Log In
-4.	To logout, there is a Logout button in the place of Login form 
+1. Navigate to any page
+2. Fill the login form on the header, using mydomain/[username]
+3. Press Log In
+4. To logout, there is a Logout button in the place of Login form 
 
 ### Home Page
-1.	Navigate to the home page
-2.	A list of available events will be displayed, click on one to follow to the respective Event page
+1. Navigate to the home page
+2. A list of available events will be displayed, click on one to follow to the respective Event page
 
 ### Event Page
-1.	Go to an event page
-2.	You can navigate to each member profile and see the details of the event
+1. Go to an event page
+2. You can navigate to each member profile and see the details of the event
 
 ### Group Page
-1.	Go to a group page
-2.	Here you can see the details of the group, list of events and members, the organizer and the calendar
-3.	At the bottom of the page, if you are authenticated, you can see the form to create the Event.
+1. Go to a group page
+2. Here you can see the details of the group, list of events and members, the organizer and the calendar
+3. At the bottom of the page, if you are authenticated, you can see the form to create the Event.
 
 ## Video
 Direct link to the video:  
