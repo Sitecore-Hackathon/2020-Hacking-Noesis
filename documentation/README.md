@@ -74,8 +74,4 @@ The calendar was done by using an extension of SXA Calendar in order to be possi
 3. At the bottom of the page, if you are authenticated, you can see the form to create the Event.
 
 ## Video
-Direct link to the video:  
-
-Please provide a video highlighing your Hackathon module submission and provide a link to the video. Either a [direct link](https://www.youtube.com/watch?v=EpNhxW4pNKk) to the video, upload it to this documentation folder or maybe upload it to Youtube...
-
-[![Sitecore Hackathon Video Embedding Alt Text](https://img.youtube.com/vi/EpNhxW4pNKk/0.jpg)](https://www.youtube.com/watch?v=EpNhxW4pNKk)
+Direct link to the video: [Youtube Video](https://youtu.be/lXEAW7-w3Wc) 
