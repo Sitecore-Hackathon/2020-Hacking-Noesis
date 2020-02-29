@@ -5,7 +5,10 @@
     <AssemblyName>Feature.Accounts</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Sitecore.ExperienceForms" Version="9.3.0" />
     <PackageReference Include="Sitecore.Kernel" Version="9.3.0" />
+    <PackageReference Include="Sitecore.XA.Feature.Security" Version="9.3.0" />
+    <PackageReference Include="Sitecore.XA.Foundation.Mvc" Version="9.3.0" />
   </ItemGroup>
 <!-- Uncomment as needed; f.ex. if Sitecore package references not defined on solution scope - see .\build\props\Build.PackageReferences.props
   <ItemGroup>
