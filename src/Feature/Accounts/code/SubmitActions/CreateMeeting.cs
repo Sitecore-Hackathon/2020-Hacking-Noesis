@@ -83,15 +83,15 @@ namespace Feature.Accounts.SubmitActions
                         {
                             place = fieldValue.GetValue((object)field).ToString();
                         }
-                        if (fieldTitle.GetValue((object)field).ToString() == "StartDate")
+                        if (fieldTitle.GetValue((object)field).ToString() == "Start Date")
                         {
                             startDate = fieldValue.GetValue((object)field).ToString();
                         }
-                        if (fieldTitle.GetValue((object)field).ToString() == "EndDate")
+                        if (fieldTitle.GetValue((object)field).ToString() == "End Date")
                         {
                             endDate = fieldValue.GetValue((object)field).ToString();
                         }
-                        if (fieldTitle.GetValue((object)field).ToString() == "Eventtypes")
+                        if (fieldTitle.GetValue((object)field).ToString() == "Event Types")
                         {
                             eventtypes = fieldValue.GetValue((object)field).ToString();
                         }
@@ -183,21 +183,24 @@ namespace Feature.Accounts.SubmitActions
                 Sitecore.Data.Fields.MultilistField multiselectField = item.Fields["Members"];
                 multiselectField.Add(userId.ToString());
 
+                item.Editing.EndEdit();
+
                 Item calendarEvent = item.Axes.SelectSingleItem("//*[@@templateid = '" + Sitecore.XA.Feature.Events.Templates.CalendarEvent.ID + "']");
 
                 if(calendarEvent != null){
+                    calendarEvent.Editing.BeginEdit();
                     calendarEvent["Place"] = place;
                     calendarEvent["Name"] = name;
                     calendarEvent["Description"] = description;
                     Sitecore.Data.Fields.MultilistField multiselectCalendarEvent = calendarEvent.Fields["EventType"];
                     multiselectCalendarEvent.Add(eventtypes.ToString());
+                    calendarEvent.Editing.EndEdit();
                 }
 
-                item.Editing.EndEdit();
             }
             catch (Exception ex)
             {
-                item.Editing.CancelEdit();
+                item.Editing.CancelEdit();              
                 throw ex;
             }
         }
