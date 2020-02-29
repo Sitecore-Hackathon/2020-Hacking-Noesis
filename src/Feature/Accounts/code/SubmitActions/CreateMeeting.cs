@@ -189,9 +189,9 @@ namespace Feature.Accounts.SubmitActions
 
                 if(calendarEvent != null){
                     calendarEvent.Editing.BeginEdit();
-                    calendarEvent["Place"] = place;
-                    calendarEvent["Name"] = name;
-                    calendarEvent["Description"] = description;
+                    calendarEvent["EventPlace"] = place;
+                    calendarEvent["EventName"] = name;
+                    calendarEvent["EventDescription"] = description;
                     Sitecore.Data.Fields.MultilistField multiselectCalendarEvent = calendarEvent.Fields["EventType"];
                     multiselectCalendarEvent.Add(eventtypes.ToString());
                     calendarEvent.Editing.EndEdit();
